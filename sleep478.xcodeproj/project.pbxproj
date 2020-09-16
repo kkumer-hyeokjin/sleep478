@@ -13,6 +13,7 @@
 		7F71A64624B95CD100CAFC02 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F71A64424B95CD100CAFC02 /* Main.storyboard */; };
 		7F71A64824B95CD200CAFC02 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F71A64724B95CD200CAFC02 /* Assets.xcassets */; };
 		7F71A64B24B95CD200CAFC02 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F71A64924B95CD200CAFC02 /* LaunchScreen.storyboard */; };
+		7F80107824C727040092307B /* image in Resources */ = {isa = PBXBuildFile; fileRef = 7F80107724C727040092307B /* image */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		7F71A64724B95CD200CAFC02 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7F71A64A24B95CD200CAFC02 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7F71A64C24B95CD200CAFC02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7F80107724C727040092307B /* image */ = {isa = PBXFileReference; lastKnownFileType = folder; path = image; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +42,7 @@
 		7F71A63224B95CD100CAFC02 = {
 			isa = PBXGroup;
 			children = (
+				7F80107724C727040092307B /* image */,
 				7F71A63D24B95CD100CAFC02 /* sleep478 */,
 				7F71A63C24B95CD100CAFC02 /* Products */,
 			);
@@ -125,6 +128,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F80107824C727040092307B /* image in Resources */,
 				7F71A64B24B95CD200CAFC02 /* LaunchScreen.storyboard in Resources */,
 				7F71A64824B95CD200CAFC02 /* Assets.xcassets in Resources */,
 				7F71A64624B95CD100CAFC02 /* Main.storyboard in Resources */,
@@ -284,9 +288,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CHMXNJVYYZ;
 				INFOPLIST_FILE = sleep478/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -302,9 +308,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CHMXNJVYYZ;
 				INFOPLIST_FILE = sleep478/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
