@@ -25,7 +25,7 @@ class ViewController: UIViewController {
     var count1: Int = 1
     var count2: Int = 1
     var count3: Int = 8000
-    var remainTimeSecond: Int = 0
+    var remainTimeSecond: Double = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,7 +44,7 @@ class ViewController: UIViewController {
         startButton.isEnabled = false
         startButton.isHidden = true
         yellowImage.alpha = 1
-        remainTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(remainTimerAction), userInfo:  nil, repeats: true)
+        remainTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(remainTimerAction), userInfo:  nil, repeats: true)
         loopTimerAction()
         loopTimer = Timer.scheduledTimer(timeInterval: 19, target: self, selector: #selector(loopTimerAction), userInfo:  nil, repeats: true)
         
@@ -67,20 +67,20 @@ class ViewController: UIViewController {
     }
     
     @objc func remainTimerAction() {
-        remainTimeSecond+=1
-        print(remainTimeSecond)
+        remainTimeSecond+=0.1
+        print(round(remainTimeSecond*10)/10)
     }
     
     @objc func loopTimerAction() {
         remainTimeSecond = 0
         
         firstTimer = Timer.scheduledTimer(timeInterval: 0.001, target: self, selector: #selector(firstTimerAction), userInfo: nil, repeats: true)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.7) {
             if self.loopTimer.isValid {
                 self.secondTimer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(self.secondTimerAction), userInfo: nil, repeats: true)
             }
         }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 11.0) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 10.5) {
             if self.loopTimer.isValid {
                 self.thirdTimer = Timer.scheduledTimer(timeInterval: 0.001, target: self, selector: #selector(self.thirdTimerAction), userInfo: nil, repeats: true)
             }
@@ -89,6 +89,10 @@ class ViewController: UIViewController {
     
     @objc func firstTimerAction() {
 //        print("first\(count1)")
+        if count1==1 {
+            print("first - start")
+        }
+        
         if count1%1000==999 {
             print("first - ",count1/1000+1)
         }
@@ -120,13 +124,19 @@ class ViewController: UIViewController {
             firstTimer.invalidate()
             print("first - end")
             count1 = 1
+        } else {
+            count1+=1
         }
         
-        count1+=1
+        
     }
     
     @objc func secondTimerAction() {
 //        print("second\(count2)")
+        if count2==1 {
+            print("second - start")
+        }
+        
         if count2%2==0 {
             print("second - ",count2/2)
         } else {
@@ -136,23 +146,27 @@ class ViewController: UIViewController {
         if count2%2==1 {
             yellowImage.alpha = 0.5
             AudioServicesPlaySystemSound(1519)
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-//                self.yellowImage.alpha = 1
-//                AudioServicesPlaySystemSound(1519)
-//            }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                self.yellowImage.alpha = 1
+                AudioServicesPlaySystemSound(1519)
+            }
         }
         
         if count2==14 {
             secondTimer.invalidate()
             print("second - end")
             count2 = 1
+        } else {
+            count2+=1
         }
-        
-        count2+=1
     }
     
     @objc func thirdTimerAction() {
 //        print("third\(count3)")
+        if count3==8000 {
+            print("third - start")
+        }
+        
         if count3%1000==1 {
             print("third - ",count3/1000+1)
         }
@@ -163,9 +177,11 @@ class ViewController: UIViewController {
             thirdTimer.invalidate()
             print("third - end")
             count3 = 8000
+        } else {
+            count3-=1
         }
 
-        count3-=1
+        
     }
     
     func moveImage(value: Double) {
@@ -173,4 +189,3 @@ class ViewController: UIViewController {
     }
 
 }
-
